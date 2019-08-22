@@ -15,10 +15,13 @@
 NLP, Natural Language Processing, involves "understanding" complete human utterances, at least to the extent of being able to give useful responses to them.
 
 # chapter 1: Language Processing and Python
+
+
+## Search text
+
 ```python
 from nltk.book import *
 
-# search text
 text1.concordance('Monstrous')  # text1 is an instance of 'nltk.text.Text'
 text1.similar('Monstrous')  # other words appear in the similar range of contest
 text1.common_contexts(['monstrous', 'very']) # examine just the contexts that are shared by two or more words
@@ -29,10 +32,13 @@ text4.dispersion_plot(
 ```
 
 ![Image of dispersion_plot](https://github.com/Angingun/learn_NLTK/blob/master/NLTKofficials/basics/dis_plot.png)
+
+
+## Count
+
 ```python
 from nltk.book import *
 
-# count
 len(text3)
 
 sorted(set(text3))
@@ -45,6 +51,7 @@ text3.count('smote')
 per = lambda count, total: 100 * count / total
 
 ```
+## Frequency distribution
 
 ```python
 from nltk.book import *
@@ -57,8 +64,10 @@ fdist1.most_common(50)
 fdist1['whale']
 
 fdist1.plot(50, cumulative=True)  # generate a cumulative frequency plot
+```
 
-# Functions Defined for NLTK's Frequency Distributions or methods set in FreqDist class
+Functions Defined for NLTK's Frequency Distributions or methods set in FreqDist class
+```python
 fdist = FreqDist(samples) 	# create a frequency distribution containing the given samples
 fdist[sample] += 1 	# increment the count for this sample
 fdist['monstrous'] 	# count of the number of times a given sample occurred
@@ -76,45 +85,47 @@ fdist1 < fdist2 	# test if samples in fdist1 occur less frequently than in fdist
 ```
 ![cumu_freq](https://github.com/Angingun/learn_NLTK/blob/master/NLTKofficials/basics/cumu_freq.png)
 
+
+##Fine-grained selection of words
+
 ```python
 from nltk.book import *
 from nltk.probability import FreqDist
 
-# Fine-grained selection of words
 v = set(text1)
 long_words = [w for w in v if len(w) > 15]  # generator 
 sorted(long_words)
-""" 
+```
 ['CIRCUMNAVIGATION', 'Physiognomically', 'apprehensiveness', 'cannibalistically',
 'characteristically', 'circumnavigating', 'circumnavigation', 'circumnavigations',
 'comprehensiveness', 'hermaphroditical', 'indiscriminately', 'indispensableness',
 'irresistibleness', 'physiognomically', 'preternaturalness', 'responsibilities',
 'simultaneousness', 'subterraneousness', 'supernaturalness', 'superstitiousness',
 'uncomfortableness', 'uncompromisedness', 'undiscriminating', 'uninterpenetratingly']
-  """
 
+```python
 fdist5 = FreqDist(text5)
 sorted(w for w in set(text5) if len(w) > 7 and fdist5[w] > 7)
-""" 
+``` 
 ['#14-19teens', '#talkcity_adults', '((((((((((', '........', 'Question',
 'actually', 'anything', 'computer', 'cute.-ass', 'everyone', 'football',
 'innocent', 'listening', 'remember', 'seriously', 'something', 'together',
 'tomorrow', 'watching']
-  """
-# collocations
+
+collocations
+```python
 text4.collocations()
-"""
+```
 United States; fellow citizens; four years; years ago; Federal
 Government; General Government; American people; Vice President; Old
 World; Almighty God; Fellow citizens; Chief Magistrate; Chief Justice;
 God bless; every citizen; Indian tribes; public debt; one another;
 foreign nations; political parties
-"""
 
-```
+
+## Conditionals
 
 ```python
-# Conditionals
 
 sent7 = [
     'Pierre', 'Vinken', ',', '61', 'years', 'old', ',', 'will', 'join', 'the',
@@ -122,10 +133,11 @@ sent7 = [
 ]
 [w for w in sent7
        if len(w) < 4]  # [',', '61', 'old', ',', 'the', 'as', 'a', '29', '.']
+```
 
+Some Word Comparison Operators
 
-# Some Word Comparison Operators
-
+```python
 s.startswith(t)  # test if s starts with t
 s.endswith(t)  # test if s ends with t
 t in s  # test if t is a substring of s
