@@ -86,7 +86,7 @@ fdist1 < fdist2 	# test if samples in fdist1 occur less frequently than in fdist
 ![cumu_freq](https://github.com/Angingun/learn_NLTK/blob/master/NLTKofficials/basics/cumu_freq.png)
 
 
-##Fine-grained selection of words
+## Fine-grained selection of words
 
 ```python
 from nltk.book import *
