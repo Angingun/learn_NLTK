@@ -25,9 +25,10 @@ text1.common_contexts(['monstrous', 'very']) # examine just the contexts that ar
 
 text4.dispersion_plot(
     ['citizens', 'democracy', 'freedom', 'duties', 'America'])
+
 ```
 
-@import "basics\dis_plot.png"
+![Image of dispersion_plot](https://github.com/Angingun/learn_NLTK/blob/master/NLTKofficials/basics/dis_plot.png)
 ```python
 from nltk.book import *
 
@@ -42,7 +43,9 @@ lexical_diversity = lambda text: len(set(text)) / len(text)
 text3.count('smote')
 100 * text4.count('a') / len(text4)
 per = lambda count, total: 100 * count / total
+
 ```
+
 ```python
 from nltk.book import *
 
@@ -71,7 +74,8 @@ fdist1 |= fdist2 	# update fdist1 with counts from fdist2
 fdist1 < fdist2 	# test if samples in fdist1 occur less frequently than in fdist2
 
 ```
-@import "basics\cumu_freq.png"
+![cumu_freq](https://github.com/Angingun/learn_NLTK/blob/master/NLTKofficials/basics/cumu_freq.png)
+
 ```python
 from nltk.book import *
 from nltk.probability import FreqDist
@@ -106,7 +110,9 @@ World; Almighty God; Fellow citizens; Chief Magistrate; Chief Justice;
 God bless; every citizen; Indian tribes; public debt; one another;
 foreign nations; political parties
 """
+
 ```
+
 ```python
 # Conditionals
 
