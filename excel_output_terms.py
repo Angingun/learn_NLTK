@@ -44,7 +44,7 @@ class CoporaHandler(object):
             count_list += [count]
         return count_list
     
-    # use muti_processing to increase efficiency
+    # use muti-processing to increase efficiency
     def count_word(self, file, copora, word_to_count, result_queue):
         count = [file]
         for _ in range(len(word_to_count)):
