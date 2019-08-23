@@ -4,8 +4,6 @@ import xlwings as xw
 
 
 class CoporaHandler(object):
-    def __init__(self, copora):
-        self._text = copora
 
     @property
     def text(self):
@@ -14,10 +12,11 @@ class CoporaHandler(object):
     @text.setter
     def text(self, copora):
         if not isinstance(copora, nltk.text.Text):
-            raise ValueError('text must be NLTK text')
+            raise ValueError('copora must be NLTK text')
         self._text = copora
 
-    def normalization(self):
+    @property
+    def nor_copora(self):
         stop_words = stopwords.words('english')
         n1 = [word.lower() for word in self._text if word.isalpha()]
         n2 = [word for word in n1 if word not in stop_words]
@@ -26,9 +25,8 @@ class CoporaHandler(object):
 
 
 def upload_corpus(root, file):
-    corpora = PlaintextCorpusReader(root, file)
-    text = corpora.words()
-    return text
+    copora = nltk.Text(PlaintextCorpusReader(root, file).words())
+    return copora
 
 
 def output_excel(terms, filepath):
@@ -40,12 +38,15 @@ def output_excel(terms, filepath):
     wb.close()
 
 
-def main(filepath):
+def main():
     copora = upload_corpus(r'NlTK\text', '1.txt')
-    output_excel(CoporaHandler(copora).normalization(), filepath)
+    terms = CoporaHandler()
+    terms.text = copora
+    output_excel(
+        terms.nor_copora,
+        r'C:\Users\acer\Desktop\corpus _python\xlsx_test\excel_output_terms.xlsx'
+    )
 
 
 if __name__ == "__main__":
-    main(
-        r'C:\Users\acer\Desktop\corpus _python\xlsx_test\excel_output_terms.xlsx'
-    )
+    main()
