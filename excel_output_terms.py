@@ -15,7 +15,6 @@ class CoporaHandler(object):
             raise ValueError('copora must be NLTK text')
         self._text = copora
 
-    @property
     def nor_copora(self):
         stop_words = stopwords.words('english')
         n1 = [word.lower() for word in self._text if word.isalpha()]
@@ -43,7 +42,7 @@ def main():
     terms = CoporaHandler()
     terms.text = copora
     output_excel(
-        terms.nor_copora,
+        terms.nor_copora(),
         r'C:\Users\acer\Desktop\corpus _python\xlsx_test\excel_output_terms.xlsx'
     )
 
