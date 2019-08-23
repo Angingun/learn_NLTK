@@ -42,8 +42,12 @@ def output_excel(terms, filepath):
     app = xw.App(visible=False, add_book=False)
     wb = app.books.add()
     sht1 = wb.sheets('sheet1')
-    # sht1.range('A1').options(transpose=True).value = terms
-    sht1.range('A1').options(expand='table').value = terms
+    for _ in terms:
+        if isinstance(_, list or tuple):
+            sht1.range('A1').options(expand='table').value = terms
+        else:
+            break
+    sht1.range('A1').options(transpose=True).value = terms
     wb.save(filepath)
     wb.close()
 
@@ -53,8 +57,8 @@ def main():
     terms = CoporaHandler()
     terms.text = copora
     output_excel(
-        terms.freq_list(),
-        r'C:\Users\acer\Desktop\corpus _python\xlsx_test\excel_output_freq.xlsx'
+        list(set(terms.nor_copora)),
+        r'C:\Users\acer\Desktop\corpus _python\xlsx_test\excel_output_terms.xlsx'
     )
 
 
