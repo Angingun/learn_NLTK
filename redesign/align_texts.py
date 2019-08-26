@@ -1,3 +1,8 @@
+""" 
+This chunk is to align E - C texts.
+chapter 8.6 on p181 
+ """
+
 with open(r'NlTK\text\sl.txt', 'r', encoding='utf-8') as fe:
     fe_lines = fe.readlines()
 
