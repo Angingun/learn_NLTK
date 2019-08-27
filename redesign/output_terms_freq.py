@@ -1,7 +1,6 @@
 from nltk.corpus import stopwords, PlaintextCorpusReader
 from nltk.probability import FreqDist
 
-import nltk
 import xlwings as xw
 '''
 按词频输出术语
@@ -50,6 +49,7 @@ def main():
         terms.freq_list(),
         r'C:\Users\acer\Desktop\corpus _python\xlsx_test\excel_output_freq.xlsx'
     )
+
 
 if __name__ == "__main__":
     main()
