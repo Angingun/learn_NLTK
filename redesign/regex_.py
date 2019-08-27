@@ -6,7 +6,7 @@ chapter8.2  P160
 '''
 regex = re.compile(r"(.*?)([\.](\r\n)+)")
 
-test_str = "The American Copyright Act\r\n\r\nChapter 1 Subject Matter and Scope of Copyright\r\n$ 101 Definitions.\r\n\r\nExcept as otherwise provided in this'\r\n title, as used in this.\r\n title, the following terms and thier variant forms mean the folowing:\r\n"
+test_str = "The American Copyright Act\r\n\r\nChapter 1 Subject Matter and Scope of Copyright\r\n$ 101 Definitions.\r\n\r\nExcept as otherwise provided in this'\r\n title, as used in this.\r\n title, the following terms and their variant forms mean the folowing:\r\n"
 
 matches = re.findall(regex, test_str)
 

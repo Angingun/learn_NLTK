@@ -32,27 +32,6 @@ class CoporaHandler(object):
             count_list += [count]
         return count_list
 
-    """ # use muti-processing to increase efficiency
-    def count_word(self, file, corpora, word_to_count, result_queue):
-        count = [file]
-        fdist = FreqDist(corpora)
-        for _ in word_to_count:
-            count += [fdist(_)]
-        return count
-
-    def count_word_processes(self, files, corpora, word_to_count):
-        count_list = [['filesnames'] + word_to_count]
-        processes = []
-        result_queue = Queue()
-        for _ in range(len(corpora)):
-            p = Process(target=count_word, args=files(_), corpora(_), word_to_count, result_queue)
-            processes.append(p)
-            p.start()
-        for p in processes:
-            p.join()
-        count_list += result_queue.get()
-        return count_list """
-
 
 def upload_all(root):
     f = PlaintextCorpusReader(root, '.*\.txt')
