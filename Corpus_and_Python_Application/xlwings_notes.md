@@ -1,3 +1,11 @@
+xlwings的特色
+
+    * xlwings能够非常方便的读写Excel文件中的数据，并且能够进行单元格格式的修改
+    * 可以和matplotlib以及pandas无缝连接
+    * 可以调用Excel文件中VBA写好的程序，也可以让VBA调用用Python写的程序。
+    * 开源免费，一直在更新 
+
+
 # Read and write an already exsiting Excel
 ```python
 import xlwings as xw
