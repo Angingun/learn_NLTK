@@ -1,6 +1,6 @@
 from nltk.corpus import stopwords, PlaintextCorpusReader
 from nltk.probability import FreqDist
-from multiprocessing import Process, Queue
+
 import nltk
 import xlwings as xw
 '''
